@@ -1,0 +1,268 @@
+/*
+Mastarune, zulc22 2022
+https://github.com/zulc22/mastarune
+Version 1.0
+
+0BSD License text follows:
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
+OF THIS SOFTWARE.
+*/
+
+/* Font */
+
+body.system-font, .character-counter {
+    font-family: Determination Mono Web;
+    text-shadow: 1px 1px 0 #0c0e74;
+}
+
+/* Fix font sizes (would it be considered better to use a wildcard for this?) */
+
+.display-name__account, .status__content__spoiler-link, a, .icon-with-badge__badge,
+.status__content, .emojione, .custom-emoji, textarea, span, .text-icon-button,
+.character-counter, .button, label, .hint, .muted-hint, h4, li, em, strong, p,
+h1, h2, h3, [role=button], td, .spoiler-input__input {
+    font-size: 16px !important;
+    font-weight: normal;
+    line-height: 18px;
+}
+
+/* Notification badge */
+
+.icon-with-badge__badge {
+    padding: 1px 2.5px;
+    border-radius: 0;
+}
+
+/* Borders */
+
+.status, .notification, .detailed-status
+{
+    border: 16px solid transparent;
+    border-image: var(--deltarune-border-img) 16 round;
+    background-color: black;
+    background-clip: padding-box;
+}
+
+.status.collapsed .status__content::after {
+    background: linear-gradient(transparent,#000);
+}
+
+/* Done on links, I think for screenreaders or something? */
+.invisible {
+    visibility: hidden;
+}
+
+/* Asterisk at beginning of toots */
+
+.status__content__text::before {
+    position: absolute;
+    left: 0ch;
+    content: "* ";
+}
+
+.status__content__text {
+    position: relative;
+    padding-left: 2ch;
+}
+
+/* Fix black-on-white UI elements */
+
+.compose-form__autosuggest-wrapper label .autosuggest-textarea__textarea,
+.compose-panel .compose-form__autosuggest-wrapper .autosuggest-textarea__textarea,
+.composer--options-wrapper,
+.dropdown-menu__item, .dropdown-menu,
+.emoji-mart-search, .emoji-picker-dropdown__modifiers__menu,
+.emoji-mart-category-label span, .emoji-mart-scroll, .emoji-mart,
+.emoji-mart-bar, .emoji-mart-anchor,
+.spoiler-input__input,
+.report-dialog-modal {
+    background-color: black !important;
+    color: white !important;
+    text-shadow: 1px 1px 0 #0c0e74;
+}
+
+/* Drop down menu */
+
+.dropdown-menu, .emoji-picker-dropdown__menu {
+    border-radius: 0;
+    border: 2px solid white;
+    background-color: black;
+}
+
+.dropdown-menu__item a {
+    color: white;
+    background-color: black;
+}
+
+.dropdown-menu__item a:active,
+.dropdown-menu__item a:focus,
+.dropdown-menu__item a:hover {
+    color: yellow;
+    background-color: black;
+}
+
+/* Buttons */
+
+.button, .button.logo-button,
+.status__content__spoiler-link {
+    border-radius: 0;
+    background-color: black !important;
+    color: white;
+    padding-left: 26px !important;
+    border: 2px solid white;
+}
+
+.button:hover, .button.logo-button:hover,
+.status__content__spoiler-link:hover {
+    padding-left: 0px !important;
+    color: yellow;
+    border-color: yellow;
+    background-color: black;
+}
+
+.button:hover::before, .button.logo-button:hover::before,
+.status__content__spoiler-link:hover::before {
+    content: var(--deltarune-dlog-heart);
+    padding: 8px;
+    padding-left: 9px;
+}
+
+.button:disabled:hover::before, .button.logo-button:disabled:hover::before {
+    content: var(--deltarune-dlog-no);
+    padding: 8px;
+    padding-left: 9px;
+}
+
+.button:disabled, .button.logo-button:disabled {
+    color: #666 !important;
+    background-color: #333;
+    text-shadow: none;
+    border-color: black;
+}
+
+/* Logo */
+
+.ui__header__logo::before { content: var(--deltarune-logo); }
+.logo { display: none; }
+
+/* Emoji mart */
+
+.emoji-mart-search input, .composer--spoiler input {
+    border-radius: 0;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+}
+
+.emoji-mart-bar {
+    border-radius: 0 !important;
+}
+
+html {
+	scrollbar-color: white rgba(255,255,255,.2);
+}
+
+/* Composer */
+
+.compose-form__autosuggest-wrapper, .composer--options-wrapper {
+    border: 2px solid white;
+}
+
+.compose-form__autosuggest-wrapper {
+    border-radius: 0 !important;
+    background-clip: padding-box;
+    padding-right: 0px;
+    border-bottom: none;
+    width: calc( 100% - 4px ) !important;
+}
+
+.autosuggest-textarea__textarea {
+    border-radius: 0 !important;
+}
+
+.composer--options-wrapper {
+    border-radius: 0 !important;
+    background-clip: padding-box;
+    border-top: none;
+}
+
+.status__content--with-spoiler > p {
+    text-shadow: #3f0000 1px 1px 0px;
+}
+
+.composer--spoiler input {
+    color: #ff7575 !important;
+    border-bottom: none;
+}
+
+.composer--spoiler.composer--spoiler--visible {
+    margin-bottom: 0px;
+    padding-bottom: 4px;
+}
+
+/* Text highlights */
+
+.status__content--with-spoiler > p .translate,
+.report-dialog-modal .poll__option.dialog-option >
+.poll__option__text strong:last-child
+{
+    color: transparent;
+    background: linear-gradient(0turn, #ff5151, #ff9999);
+    background-clip: text;
+    text-shadow: none;
+}
+
+.report-dialog-modal__lead {
+    color: transparent;
+    background: linear-gradient(0turn, #ffff51, #ffff99);
+    background-clip: text;
+    text-shadow: none;
+}
+
+.link-origin-tag {
+    text-shadow: #3f3f00 1px 1px 0px;
+}
+
+.status__content a {
+    color: transparent;
+    background: linear-gradient(0turn, #51ffff, #99ffff);
+    background-clip: text;
+    text-shadow: none;
+}
+
+.focusable:focus {
+    background-color: #333;
+}
+
+/* Report dialog */
+
+.report-dialog-modal .poll__option.dialog-option > .poll__option__text {
+    color: #fff;
+}
+
+.report-dialog-modal .dialog-option .poll__input:active,
+.report-dialog-modal .dialog-option .poll__input:focus,
+.report-dialog-modal .dialog-option .poll__input:hover,
+.report-dialog-modal .dialog-option .poll__input.active,
+.report-dialog-modal .dialog-option .poll__input
+{
+    border-color: white;
+}
+
+/* Data assets */
+
+:root {
+    --deltarune-border-img: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEVjb2wAAAABAQGsrrSs/uT8/vxYyzAWAAAAAXRSTlMAQObYZgAAAKxJREFUOMvtlEEOwyAMBJFSHtAvGOUeseLeJ6Ag//8rJQohdhWj9NZD9wYjbEvs2rmRvD7mEyzyfhIAEqAD5iJBYj4eFLAQUj56eQ1ym4YfHkr5tddiF0Kgrhij24DnwsB6ghngxLUNCiiSUCCkbf6pViWlerHs084arG1eX6IGoQP60D3wbPqD3wDf/aBphmv7mIazLGqb2orBIDhm1Mxw2nE2F8BgZVhL5kpv0g+Ab47NTM8AAAAASUVORK5CYII=);
+    --deltarune-dlog-heart: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAFpJREFUGNON0DEOwgAMQ9Fnd2Rjgvvfs2GAolZUqF/KEMuJlYgaZpiorQ7aMHZUs1oP2o/pjLrANVM1/7c0jfHg1HgjE7IlBvurqpmOrMu7XfDk+5+o+2c06gWMJhl7lD3p1wAAAABJRU5ErkJggg==);
+    --deltarune-logo: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAAASCAYAAACae3b5AAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAK5JREFUaN7tmEsOgDAIBcV4/yvjwo2a2g+l1taZpYmI5JU+kGUiVFXvz0REFshmpQSAIABBAIIAAxIyYkUBTqbNEsvyvvWbnrl65JuK92Zt6BCAICDNNszd1nqfEApf2HFr2/UvBDFDkegQI7nihODYVFYKIscRtzrpMdcdc+euOP1aTo41daydQLp1iGGuCdXDR4i4iYIrY3SwON8SBKazf32ZMpiILrCYAgQBz+wUdW4roS/dxQAAAABJRU5ErkJggg==);
+    --deltarune-dlog-no: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAFpJREFUGNN1z8ENwzAMQ9FHIQNk1DboHsmoncDpyYBrODxSnyKYKE1zcZv0IqXkZgmMYM4J+BLYB7/mZD92+A8azX36Xquqx7pVTVcop/a47rCl4LNIw1tC8wNOVReKswc22wAAAABJRU5ErkJggg==);
+}
