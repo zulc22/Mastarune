@@ -1,7 +1,7 @@
 /*
 Mastarune, zulc22 2022
 https://github.com/zulc22/mastarune
-Version 1.0
+Version 1.01
 
 0BSD License text follows:
 
@@ -22,6 +22,10 @@ OF THIS SOFTWARE.
 body.system-font, .character-counter {
     font-family: Determination Mono Web;
     text-shadow: 1px 1px 0 #0c0e74;
+}
+
+.character-counter {
+    text-shadow: none;
 }
 
 /* Fix font sizes (would it be considered better to use a wildcard for this?) */
@@ -84,7 +88,8 @@ h1, h2, h3, [role=button], td, .spoiler-input__input {
 .emoji-mart-category-label span, .emoji-mart-scroll, .emoji-mart,
 .emoji-mart-bar, .emoji-mart-anchor,
 .spoiler-input__input,
-.report-dialog-modal {
+.report-dialog-modal,
+.composer--upload_form--progress {
     background-color: black !important;
     color: white !important;
     text-shadow: 1px 1px 0 #0c0e74;
@@ -207,6 +212,10 @@ html {
 .composer--spoiler.composer--spoiler--visible {
     margin-bottom: 0px;
     padding-bottom: 4px;
+}
+
+.composer--upload_form--progress, .composer--options-wrapper {
+    border-top: 2px solid white;
 }
 
 /* Text highlights */
