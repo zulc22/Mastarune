@@ -7,6 +7,8 @@ I am unable to provide a link to just "install" the style unlike with the Twitte
 
 If you know how to solve these problems make an issue or pull request!
 
+## Note - this theme was designed for the Glitchsoc "Glitch Edition" default skin.
+
 # Installation
 
 For now I'm not writing a fool-proof guide, so hopefully this is good enough. I mean, you probably use Mastodon so this shouldn't be too bad to understand, I would hope.
