@@ -1,7 +1,7 @@
 /*
 Mastarune, zulc22 2022
 https://github.com/zulc22/mastarune
-Version 1.02
+Version 1.03
 
 Tested on Mastodon/Glitchsoc v4.0.0rc2+glitch
 
@@ -84,7 +84,7 @@ h1, h2, h3, [role=button], td, .spoiler-input__input, dt {
 
 .compose-form__autosuggest-wrapper label .autosuggest-textarea__textarea,
 .compose-panel .compose-form__autosuggest-wrapper .autosuggest-textarea__textarea,
-.compose-form__buttons-wrapper,
+.compose-form__buttons-wrapper, .compose-form__upload-wrapper,
 .dropdown-menu__item a, .dropdown-menu,
 .emoji-mart-search, .emoji-picker-dropdown__modifiers__menu,
 .emoji-mart-category-label span, .emoji-mart-scroll, .emoji-mart,
@@ -196,7 +196,8 @@ html {
 
 /* Composer */
 
-.compose-form__autosuggest-wrapper, .compose-form__buttons-wrapper, .spoiler-input--visible {
+.compose-form__autosuggest-wrapper, .compose-form__buttons-wrapper,
+.spoiler-input--visible {
     border: 2px solid white;
 }
 
@@ -233,7 +234,7 @@ html {
     border-bottom: none;
 }
 
-.upload-progress, .compose-form__buttons-wrapper {
+.upload-progress, .compose-form__buttons-wrapper, .compose-form__upload-wrapper {
     border-top: 2px solid white;
 }
 
