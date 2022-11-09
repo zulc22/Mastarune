@@ -250,14 +250,15 @@ html {
 .poll__option__text strong:last-child
 {
     color: transparent;
-    background: linear-gradient(0turn, #ff5151, #ff9999);
+    background: linear-gradient(0turn, #ff5151, #ffd2d2);
     background-clip: text;
     text-shadow: none;
 }
 
-.report-dialog-modal__lead {
+.report-dialog-modal__lead,
+.status .hashtag {
     color: transparent;
-    background: linear-gradient(0turn, #ffff51, #ffff99);
+    background: linear-gradient(0turn, #ffff51, #ffc);
     background-clip: text;
     text-shadow: none;
 }
@@ -266,9 +267,11 @@ html {
     text-shadow: #3f3f00 1px 1px 0px;
 }
 
-.status__content a {
+.status__content a,
+.status__content a.unhandled-link,
+.account__header__bio .account__header__fields a {
     color: transparent;
-    background: linear-gradient(0turn, #51ffff, #99ffff);
+    background: linear-gradient(0turn, #51ffff, #d1ffff);
     background-clip: text;
     text-shadow: none;
 }
