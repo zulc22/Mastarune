@@ -1,7 +1,9 @@
 /*
 Mastarune, zulc22 2022
 https://github.com/zulc22/mastarune
-Version 1.01
+Version 1.02
+
+Tested on Mastodon/Glitchsoc v4.0.0rc2+glitch
 
 0BSD License text follows:
 
@@ -33,7 +35,7 @@ body.system-font, .character-counter {
 .display-name__account, .status__content__spoiler-link, a, .icon-with-badge__badge,
 .status__content, .emojione, .custom-emoji, textarea, span, .text-icon-button,
 .character-counter, .button, label, .hint, .muted-hint, h4, li, em, strong, p,
-h1, h2, h3, [role=button], td, .spoiler-input__input {
+h1, h2, h3, [role=button], td, .spoiler-input__input, dt {
     font-size: 16px !important;
     font-weight: normal;
     line-height: 18px;
@@ -82,14 +84,15 @@ h1, h2, h3, [role=button], td, .spoiler-input__input {
 
 .compose-form__autosuggest-wrapper label .autosuggest-textarea__textarea,
 .compose-panel .compose-form__autosuggest-wrapper .autosuggest-textarea__textarea,
-.composer--options-wrapper,
-.dropdown-menu__item, .dropdown-menu,
+.compose-form__buttons-wrapper,
+.dropdown-menu__item a, .dropdown-menu,
 .emoji-mart-search, .emoji-picker-dropdown__modifiers__menu,
 .emoji-mart-category-label span, .emoji-mart-scroll, .emoji-mart,
 .emoji-mart-bar, .emoji-mart-anchor,
 .spoiler-input__input,
 .report-dialog-modal,
-.composer--upload_form--progress {
+.upload-progress,
+.compose-form__buttons i, .text-icon-button, .character-counter  {
     background-color: black !important;
     color: white !important;
     text-shadow: 1px 1px 0 #0c0e74;
@@ -97,21 +100,36 @@ h1, h2, h3, [role=button], td, .spoiler-input__input {
 
 /* Drop down menu */
 
-.dropdown-menu, .emoji-picker-dropdown__menu {
+[role=listbox], .dropdown-menu {
     border-radius: 0;
     border: 2px solid white;
     background-color: black;
 }
 
-.dropdown-menu__item a {
-    color: white;
+[role=option], [role=option] strong, .dropdown-menu__item {
+    color: white !important;
+}
+
+/* icon */
+[role=option]:active i::before,
+[role=option]:focus i::before,
+[role=option]:hover i::before {
+    content: var(--deltarune-dlog-heart);
+    padding: 2px;
+}
+
+[role=option]:active,
+[role=option]:focus,
+[role=option]:hover {
+    color: transparent !important;
+    text-shadow: none;
     background-color: black;
 }
 
-.dropdown-menu__item a:active,
-.dropdown-menu__item a:focus,
-.dropdown-menu__item a:hover {
-    color: yellow;
+[role=option]:active strong,
+[role=option]:focus strong,
+[role=option]:hover strong {
+    color: yellow !important;
     background-color: black;
 }
 
@@ -161,7 +179,7 @@ h1, h2, h3, [role=button], td, .spoiler-input__input {
 
 /* Emoji mart */
 
-.emoji-mart-search input, .composer--spoiler input {
+.emoji-mart-search input {
     border-radius: 0;
     background-color: black;
     border: 2px solid white;
@@ -178,8 +196,14 @@ html {
 
 /* Composer */
 
-.compose-form__autosuggest-wrapper, .composer--options-wrapper {
+.compose-form__autosuggest-wrapper, .compose-form__buttons-wrapper, .spoiler-input--visible {
     border: 2px solid white;
+}
+
+.spoiler-input--visible {
+    margin-bottom: 0px !important;
+    padding-bottom: 4px;
+    border-bottom: none;
 }
 
 .compose-form__autosuggest-wrapper {
@@ -194,7 +218,7 @@ html {
     border-radius: 0 !important;
 }
 
-.composer--options-wrapper {
+.compose-form__buttons-wrapper {
     border-radius: 0 !important;
     background-clip: padding-box;
     border-top: none;
@@ -204,18 +228,19 @@ html {
     text-shadow: #3f0000 1px 1px 0px;
 }
 
-.composer--spoiler input {
+.spoiler-input input {
     color: #ff7575 !important;
     border-bottom: none;
 }
 
-.composer--spoiler.composer--spoiler--visible {
-    margin-bottom: 0px;
-    padding-bottom: 4px;
+.upload-progress, .compose-form__buttons-wrapper {
+    border-top: 2px solid white;
 }
 
-.composer--upload_form--progress, .composer--options-wrapper {
-    border-top: 2px solid white;
+.text-icon-button {
+    padding: 0 3px !important;
+    position: relative;
+    top: -2px;
 }
 
 /* Text highlights */
